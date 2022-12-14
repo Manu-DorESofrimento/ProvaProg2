@@ -21,7 +21,8 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-        <h1>Welcome to WildFly!</h1>
+        <h1>Vroom Vroom</h1>
+        
 
         <div>
             <p>You have successfully deployed a Java EE 7 Enterprise
@@ -32,9 +33,12 @@
 
         <h:form id="reg">
             <h2>Member Registration</h2>
+            <h:panelGrid columns="1">
+            	<h:outputLabel for="nome" value="#{Usuario.eu}" />
+            </h:panelGrid>
             <p>Enforces annotation-based constraints defined on the
                 model class.</p>
-            <h:panelGrid columns="3" columnClasses="titleCell">
+            <h:panelGrid columns="4" columnClasses="titleCell">
                 <h:outputLabel for="name" value="Usuario:" />
                 <h:inputText id="name" value="#{usuarioController.novoUsuario.nome}" />
                 <h:message for="name" errorClass="invalid" />

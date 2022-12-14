@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -47,6 +48,9 @@ public class Usuario {
 	@OneToMany(fetch=FetchType.LAZY)
 	private List<Permissao> listaPermissoes;
 
+	@Transient
+	private String eu="Emanuel";
+	
 	public Integer getId_usuario() {
 		return id_usuario;
 	}
@@ -94,6 +98,7 @@ public class Usuario {
 	public void setListaPermissoes(List<Permissao> listaPermissoes) {
 		this.listaPermissoes = listaPermissoes;
 	}
+	
 	
 	
 }
