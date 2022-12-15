@@ -1,13 +1,11 @@
 package br.edu.prova.emanuel.model;
 
-import java.util.List;
-
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -20,8 +18,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name="usuario")
 public class Usuario {
+	
 	@Id
-	@GeneratedValue
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "sequencia")
+    @SequenceGenerator(name="sequencia", sequenceName="usuario_seq", initialValue = 1, allocationSize = 1)
 	private Integer id_usuario;
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
@@ -44,10 +44,7 @@ public class Usuario {
 	@NotEmpty(message="Não pode ser vazio, por favor preencha")
 	@Email(message="E-mail deve ser valido.")
 	private String email;
-	
-	@OneToMany(fetch=FetchType.LAZY)
-	private List<Permissao> listaPermissoes;
-	
+
 	public Integer getId_usuario() {
 		return id_usuario;
 	}
@@ -88,14 +85,6 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public List<Permissao> getListaPermissoes() {
-		return listaPermissoes;
-	}
-
-	public void setListaPermissoes(List<Permissao> listaPermissoes) {
-		this.listaPermissoes = listaPermissoes;
-	}
-	
 	
 	
 }
