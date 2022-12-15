@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -22,6 +23,8 @@ public class UsuarioController {
 	@Inject
 	private UsuarioDAO	usuarioDAO;
 	
+	@Produces
+	@Named
 	private Usuario novoUsuario;
 	
 	private List<Usuario> listaUsuarios;

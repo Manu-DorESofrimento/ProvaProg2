@@ -2,14 +2,15 @@ package br.edu.prova.emanuel.dao;
 
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateful;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 
 import br.edu.prova.emanuel.model.Usuario;
 
-@ApplicationScoped
+
+@Stateful
 public class UsuarioDAO {
 	
 	@Inject

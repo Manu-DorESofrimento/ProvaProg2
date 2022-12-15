@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -27,12 +26,13 @@ public class Usuario {
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
 	@NotEmpty(message="Não pode ser vazio, por favor preencha")
-	@Pattern(regexp= "^[0-9]*", message="O nome nao pode conter numeros.")
+	@Pattern(regexp= "[^0-9]*", message="O nome nao pode conter numeros.")
 	@Size(min=3, max=30, message="O nome nao pode ter menos que 3 letras e mais que 30 letras.")
 	private String nome;
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
 	@NotEmpty(message="Não pode ser vazio, por favor preencha")
+	@Pattern(regexp="[^a-zA-Z]*", message="O cpf nao pode conter letra.")
 	private String cpf;
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
@@ -47,9 +47,6 @@ public class Usuario {
 	
 	@OneToMany(fetch=FetchType.LAZY)
 	private List<Permissao> listaPermissoes;
-
-	@Transient
-	private String eu="Emanuel";
 	
 	public Integer getId_usuario() {
 		return id_usuario;

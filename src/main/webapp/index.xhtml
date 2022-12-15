@@ -33,13 +33,14 @@
 
         <h:form id="reg">
             <h2>Member Registration</h2>
-            <h:panelGrid columns="1">
-            	<h:outputLabel for="nome" value="#{Usuario.eu}" />
+            <h:panelGrid columns="3" columnClasses="titleCell">
+            	<h:outputLabel for="nome" value="Emanuel" />
+            	
             </h:panelGrid>
             <p>Enforces annotation-based constraints defined on the
                 model class.</p>
-            <h:panelGrid columns="4" columnClasses="titleCell">
-                <h:outputLabel for="name" value="Usuario:" />
+            <h:panelGrid columns="3" columnClasses="titleCell">
+                <h:outputLabel for="name" value="Nome:" />
                 <h:inputText id="name" value="#{usuarioController.novoUsuario.nome}" />
                 <h:message for="name" errorClass="invalid" />
                 
