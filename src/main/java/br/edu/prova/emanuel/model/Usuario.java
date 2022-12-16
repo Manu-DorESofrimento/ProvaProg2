@@ -1,6 +1,5 @@
 package br.edu.prova.emanuel.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +12,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-
 
 @Entity
 @Table(name="usuario")
@@ -32,7 +30,7 @@ public class Usuario {
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
 	@NotEmpty(message="Não pode ser vazio, por favor preencha")
-	@Pattern(regexp="[^a-zA-Z]*", message="O cpf nao pode conter letra.")
+	@Pattern(regexp="[^a-zA-Z]*", message="O cpf nao pode conter letras.")
 	private String cpf;
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
