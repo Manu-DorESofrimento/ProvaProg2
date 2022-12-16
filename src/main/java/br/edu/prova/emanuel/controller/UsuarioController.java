@@ -29,6 +29,16 @@ public class UsuarioController {
 	
 	private List<Usuario> listaUsuarios;
 	
+	private String eu="Emanuel";
+	
+	public String getEu() {
+		return eu;
+	}
+
+	public void setEu(String eu) {
+		this.eu = eu;
+	}
+
 	@PostConstruct
 	public void inicializarUsuario(){
 		novoUsuario = new Usuario();
