@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name="usuario")
@@ -30,7 +31,8 @@ public class Usuario {
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
 	@NotEmpty(message="Não pode ser vazio, por favor preencha")
-	@Pattern(regexp="[^a-zA-Z]*", message="O cpf nao pode conter letras.")
+	
+	@CPF(message="Insira um cpf válido")
 	private String cpf;
 	
 	@NotNull(message="Não pode ser vazio, por favor preencha")
